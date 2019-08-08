@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>http://www.penguinms.com/Nuget</PackageProjectUrl>
+    <PackageIconUrl>http://www.penguinms.com/client/images/pg.png</PackageIconUrl>
+    <Version>1.0.6</Version>
+    <Description>Contains base classes for all workers intended for consumption by CMS systems</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Penguin.Cms.Logging" Version="1.0.5" />
+    <PackageReference Include="Penguin.Configuration" Version="1.0.12" />
+    <PackageReference Include="Penguin.Configuration" Version="1.1.2" />
+    <PackageReference Include="Penguin.Messaging.Logging" Version="2.0.6" />
+    <PackageReference Include="Penguin.Reflection" Version="3.11.0" />
+    <PackageReference Include="Penguin.Workers.Abstractions" Version="1.2.10" />
+    <PackageReference Include="Penguin.Workers.Repositories" Version="1.0.2" />
+  </ItemGroup>
+
+ <ItemGroup>
+    <None Include="..\License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors>NU1605, CS1591</WarningsAsErrors>
+    <DocumentationFile>C:\SVN\Framework\Nuget\Penguin.Cms.Workers\Penguin.Cms.Workers.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DocumentationFile>C:\SVN\Framework\Nuget\Penguin.Cms.Workers\Penguin.Cms.Workers.xml</DocumentationFile>
+  </PropertyGroup>
+</Project>
