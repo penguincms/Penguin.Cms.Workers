@@ -19,8 +19,6 @@ namespace Penguin.Cms.Workers
     /// </summary>
     public abstract class CmsWorker : Worker
     {
-        #region Constructors
-
         /// <summary>
         /// Creates a new instance of the CmsWorker class
         /// </summary>
@@ -28,7 +26,7 @@ namespace Penguin.Cms.Workers
         /// <param name="logEntryRepository">A LogEntry repository implementation to use when building the underlying logger</param>
         /// <param name="errorRepository">An Error repository implementation for handling the creation of worker errors</param>
         /// <param name="messageBus">An optional message bus to use for the worker and logger</param>
-        public CmsWorker(WorkerRepository workerRepository, IRepository<LogEntry> logEntryRepository, IRepository<Error> errorRepository, MessageBus messageBus = null)
+        public CmsWorker(WorkerRepository workerRepository, IRepository<LogEntry> logEntryRepository, IRepository<AuditableError> errorRepository, MessageBus messageBus = null)
         {
             this.MessageBus = messageBus;
 
@@ -40,10 +38,6 @@ namespace Penguin.Cms.Workers
 
             this.UpdateLastRun();
         }
-
-        #endregion Constructors
-
-        #region Methods
 
         /// <summary>
         /// Attempts to get the last-run time from the worker repository
@@ -71,17 +65,13 @@ namespace Penguin.Cms.Workers
                 {
                     MessageBus?.Log(ex);
                     this.Logger.LogException(ex);
-                    ExceptionDispatchInfo.Capture(ex).Throw();
+                    throw;
                 }
 
                 this.Logger.Dispose();
                 this.IsBusy = false;
             }
         }
-
-        #endregion Methods
-
-        #region Properties
 
         /// <summary>
         /// The logger to use for recording worker activity
@@ -97,8 +87,6 @@ namespace Penguin.Cms.Workers
         /// A worker repository to store event data in
         /// </summary>
         protected WorkerRepository WorkerRepository { get; set; }
-
-        #endregion Properties
 
         /// <summary>
         /// Logs an informational message during the worker run

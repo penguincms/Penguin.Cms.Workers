@@ -9,7 +9,7 @@
             Base class for all workers that assume existence of core CMS functionality
             </summary>
         </member>
-        <member name="M:Penguin.Cms.Workers.CmsWorker.#ctor(Penguin.Workers.Repositories.WorkerRepository,Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry},Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Errors.Error},Penguin.Messaging.Core.MessageBus)">
+        <member name="M:Penguin.Cms.Workers.CmsWorker.#ctor(Penguin.Workers.Repositories.WorkerRepository,Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry},Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Errors.AuditableError},Penguin.Messaging.Core.MessageBus)">
             <summary>
             Creates a new instance of the CmsWorker class
             </summary>
