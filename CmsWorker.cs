@@ -1,6 +1,6 @@
-﻿using Penguin.Cms.Logging.Entities;
-using Penguin.Errors;
-using Penguin.Logging;
+﻿using Penguin.Cms.Errors;
+using Penguin.Cms.Logging.Entities;
+using Penguin.Cms.Logging.Services;
 using Penguin.Messaging.Abstractions.Interfaces;
 using Penguin.Messaging.Core;
 using Penguin.Messaging.Logging.Extensions;
@@ -10,7 +10,6 @@ using Penguin.Workers.Abstractions;
 using Penguin.Workers.Repositories;
 using System;
 using System.ComponentModel;
-using System.Runtime.ExceptionServices;
 
 namespace Penguin.Cms.Workers
 {
@@ -19,6 +18,25 @@ namespace Penguin.Cms.Workers
     /// </summary>
     public abstract class CmsWorker : Worker
     {
+        /// <summary>
+        /// The logger to use for recording worker activity
+        /// </summary>
+        protected Logger Logger { get; set; }
+
+        /// <summary>
+        /// The optional message bus to send logged information over
+        /// </summary>
+        protected MessageBus MessageBus { get; set; }
+
+        /// <summary>
+        /// A worker repository to store event data in
+        /// </summary>
+        protected WorkerRepository WorkerRepository { get; set; }
+
+        private string _typeName { get; set; }
+
+        private string TypeName { get { if (this._typeName is null) { this._typeName = this.GetType().Name; } return this._typeName; } }
+
         /// <summary>
         /// Creates a new instance of the CmsWorker class
         /// </summary>
@@ -74,28 +92,9 @@ namespace Penguin.Cms.Workers
         }
 
         /// <summary>
-        /// The logger to use for recording worker activity
-        /// </summary>
-        protected Logger Logger { get; set; }
-
-        /// <summary>
-        /// The optional message bus to send logged information over
-        /// </summary>
-        protected MessageBus MessageBus { get; set; }
-
-        /// <summary>
-        /// A worker repository to store event data in
-        /// </summary>
-        protected WorkerRepository WorkerRepository { get; set; }
-
-        /// <summary>
         /// Logs an informational message during the worker run
         /// </summary>
         /// <param name="toLog"></param>
         protected void LogInfo(string toLog) => this.Logger.LogInfo(toLog, this.TypeName);
-
-        private string _typeName { get; set; }
-
-        private string TypeName { get { if (this._typeName is null) { this._typeName = this.GetType().Name; } return this._typeName; } }
     }
 }
