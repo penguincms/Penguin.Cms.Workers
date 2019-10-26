@@ -10,12 +10,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Penguin.Cms.Logging" Version="2.0.2" />
-    <PackageReference Include="Penguin.Configuration" Version="2.0.1" />
-    <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.0" />
     <PackageReference Include="Penguin.Reflection" Version="4.0.8" />
     <PackageReference Include="Penguin.Workers.Abstractions" Version="2.0.0" />
     <PackageReference Include="Penguin.Workers.Repositories" Version="2.0.2" />
+    <PackageReference Include="Penguin.Cms.Logging" Version="2.0.2-63707630128" />
+    <PackageReference Include="Penguin.Configuration" Version="2.0.1-63707651487" />
+    <PackageReference Include="Penguin.Messaging.Logging" Version="3.0.0-63707652289" />
   </ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
