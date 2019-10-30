@@ -4,16 +4,18 @@
     <PackageProjectUrl>https://github.com/penguincms/Penguin.Cms.Workers</PackageProjectUrl>
     <Version>2.0.1</Version>
     <Description>Contains base classes for all workers intended for consumption by CMS systems</Description>
+    <AssemblyName>Penguin.Cms.Workers</AssemblyName>
+    <RootNamespace>Penguin.Cms.Workers</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Penguin.Workers.Abstractions" Version="2.0.1-T9M1HHH" />
-    <PackageReference Include="Penguin.Workers.Repositories" Version="2.0.3-T9M1HHH" />
-    <PackageReference Include="Penguin.Cms.Logging" Version="2.0.3-T9M1HHH" />
-    <PackageReference Include="Penguin.Configuration" Version="2.0.2-T9M1HHH" />
+    <PackageReference Include="Penguin.Workers.Abstractions" Version="2.0.1-T9M2XAX" />
+    <PackageReference Include="Penguin.Workers.Repositories" Version="2.0.3-T9M2XAX" />
+    <PackageReference Include="Penguin.Cms.Logging" Version="2.0.3-T9M2XAX" />
+    <PackageReference Include="Penguin.Configuration" Version="2.0.2-T9M2XAX" />
   </ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
