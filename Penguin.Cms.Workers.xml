@@ -9,7 +9,22 @@
             Base class for all workers that assume existence of core CMS functionality
             </summary>
         </member>
-        <member name="M:Penguin.Cms.Workers.CmsWorker.#ctor(Penguin.Workers.Repositories.WorkerRepository,Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry},Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Errors.AuditableError},Penguin.Messaging.Core.MessageBus)">
+        <member name="P:Penguin.Cms.Workers.CmsWorker.Logger">
+            <summary>
+            The logger to use for recording worker activity
+            </summary>
+        </member>
+        <member name="P:Penguin.Cms.Workers.CmsWorker.MessageBus">
+            <summary>
+            The optional message bus to send logged information over
+            </summary>
+        </member>
+        <member name="P:Penguin.Cms.Workers.CmsWorker.WorkerRepository">
+            <summary>
+            A worker repository to store event data in
+            </summary>
+        </member>
+        <member name="M:Penguin.Cms.Workers.CmsWorker.#ctor(Penguin.Workers.Repositories.WorkerRepository,Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry},Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Errors.AuditableError},Penguin.Messaging.Core.MessageBus)">
             <summary>
             Creates a new instance of the CmsWorker class
             </summary>
@@ -29,21 +44,6 @@
             </summary>
             <param name="sender">Not used</param>
             <param name="e">Not used</param>
-        </member>
-        <member name="P:Penguin.Cms.Workers.CmsWorker.Logger">
-            <summary>
-            The logger to use for recording worker activity
-            </summary>
-        </member>
-        <member name="P:Penguin.Cms.Workers.CmsWorker.MessageBus">
-            <summary>
-            The optional message bus to send logged information over
-            </summary>
-        </member>
-        <member name="P:Penguin.Cms.Workers.CmsWorker.WorkerRepository">
-            <summary>
-            A worker repository to store event data in
-            </summary>
         </member>
         <member name="M:Penguin.Cms.Workers.CmsWorker.LogInfo(System.String)">
             <summary>
