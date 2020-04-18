@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/penguincms/Penguin.Cms.Workers</PackageProjectUrl>
+    <Version>2.0.1</Version>
+    <Description>Contains base classes for all workers intended for consumption by CMS systems</Description>
+    <AssemblyName>Penguin.Cms.Workers</AssemblyName>
+    <RootNamespace>Penguin.Cms.Workers</RootNamespace>
+    <DocumentationFile>Penguin.Cms.Workers.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <ProjectReference Include="..\Penguin.Auditing.Abstractions\Penguin.Auditing.Abstractions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Cms.Entities\Penguin.Cms.Entities.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Cms.Errors\Penguin.Cms.Errors.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Cms.Logging\Penguin.Cms.Logging.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Cms.Repositories\Penguin.Cms.Repositories.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Cms.Workers.Entities\Penguin.Cms.Workers.Entities.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Configuration\Penguin.Configuration.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Configuration.Abstractions\Penguin.Configuration.Abstractions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Debugging\Penguin.Debugging.Local.csproj" />
+    <ProjectReference Include="..\Penguin.DependencyInjection.Abstractions\Penguin.DependencyInjection.Abstractions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Entities.Abstractions\Penguin.Entities.Abstractions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Extensions.Exceptions\Penguin.Extensions.Exceptions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Extensions.String\Penguin.Extensions.String.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Messaging.Abstractions\Penguin.Messaging.Abstractions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Messaging.Core\Penguin.Messaging.Core.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Messaging.Logging\Penguin.Messaging.Logging.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Messaging.Persistence\Penguin.Messaging.Persistence.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Persistence.Abstractions\Penguin.Persistence.Abstractions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Persistence.Repositories\Penguin.Persistence.Repositories.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Reflection\Penguin.Reflection.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Reflection.Abstractions\Penguin.Reflection.Abstractions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Reflection.Extensions\Penguin.Reflection.Extensions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Workers.Abstractions\Penguin.Workers.Abstractions.Local.csproj" />
+    <ProjectReference Include="..\Penguin.Workers.Repositories\Penguin.Workers.Repositories.Local.csproj" />
+  </ItemGroup>
+  <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
+</Project>
