@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageProjectUrl>https://github.com/penguincms/Penguin.Cms.Workers</PackageProjectUrl>
-    <Version>5.0.0</Version>
+    <Version>5.0.1</Version>
     <Description>Contains base classes for all workers intended for consumption by CMS systems</Description>
     <AssemblyName>Penguin.Cms.Workers</AssemblyName>
     <RootNamespace>Penguin.Cms.Workers</RootNamespace>
