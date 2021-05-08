@@ -14,9 +14,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Penguin.Workers.Abstractions" Version="5.0.4" />
-    <PackageReference Include="Penguin.Configuration" Version="5.0.4" />
-    <PackageReference Include="Penguin.Cms.Logging" Version="5.0.4" />
-    <PackageReference Include="Penguin.Workers.Repositories" Version="5.0.4" />
+    <PackageReference Include="Penguin.Configuration" Version="5.0.6-TAEO1KM" />
+    <PackageReference Include="Penguin.Cms.Logging" Version="5.0.6-TAEO1KM" />
+    <PackageReference Include="Penguin.Workers.Repositories" Version="5.0.6-TAEO1KM" />
   </ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
