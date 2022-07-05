@@ -13,10 +13,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Penguin.Workers.Abstractions" Version="5.0.6-TB0DVI6" />
-    <PackageReference Include="Penguin.Configuration" Version="5.0.6-TB0DVI6" />
-    <PackageReference Include="Penguin.Cms.Logging" Version="5.0.6-TB0DVI6" />
-    <PackageReference Include="Penguin.Workers.Repositories" Version="5.0.6-TB0DVI6" />
+    <PackageReference Include="Penguin.Workers.Abstractions" Version="5.0.6-TB0E36F" />
+    <PackageReference Include="Penguin.Configuration" Version="5.0.6-TB0E36F" />
+    <PackageReference Include="Penguin.Cms.Logging" Version="5.0.6-TB0E36F" />
+    <PackageReference Include="Penguin.Workers.Repositories" Version="5.0.6-TB0E36F" />
   </ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
