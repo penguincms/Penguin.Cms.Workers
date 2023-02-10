@@ -1,5 +1,5 @@
 ﻿using Penguin.Cms.Errors;
-using Penguin.Cms.Logging.Entities;
+using Penguin.Cms.Logging;
 using Penguin.Cms.Logging.Services;
 using Penguin.Messaging.Abstractions.Interfaces;
 using Penguin.Messaging.Core;
@@ -35,7 +35,8 @@ namespace Penguin.Cms.Workers
 
         private string _typeName { get; set; }
 
-        private string TypeName { get { if (this._typeName is null) { this._typeName = this.GetType().Name; } return this._typeName; } }
+        private string TypeName
+        { get { _typeName ??= GetType().Name; return _typeName; } }
 
         /// <summary>
         /// Creates a new instance of the CmsWorker class
@@ -44,23 +45,27 @@ namespace Penguin.Cms.Workers
         /// <param name="logEntryRepository">A LogEntry repository implementation to use when building the underlying logger</param>
         /// <param name="errorRepository">An Error repository implementation for handling the creation of worker errors</param>
         /// <param name="messageBus">An optional message bus to use for the worker and logger</param>
+        [Obsolete]
         protected CmsWorker(WorkerRepository workerRepository, IRepository<LogEntry> logEntryRepository, IRepository<AuditableError> errorRepository, MessageBus messageBus = null)
         {
-            this.MessageBus = messageBus;
+            MessageBus = messageBus;
 
-            this.Logger = new Logger(this, messageBus, logEntryRepository, errorRepository);
+            Logger = new Logger(this, messageBus, logEntryRepository, errorRepository);
 
-            this.WorkerRepository = workerRepository;
+            WorkerRepository = workerRepository;
 
             MessageBus.SubscribeAll(TypeFactory.GetAllImplementations(typeof(IMessageHandler)));
 
-            this.UpdateLastRun();
+            UpdateLastRun();
         }
 
         /// <summary>
         /// Attempts to get the last-run time from the worker repository
         /// </summary>
-        public override void UpdateLastRun() => this.LastRun = this.WorkerRepository.GetLastRun(this.GetType());
+        public override void UpdateLastRun()
+        {
+            LastRun = WorkerRepository.GetLastRun(GetType());
+        }
 
         /// <summary>
         /// Attempts to start the worker and serves as a wrapper for all run attempts
@@ -69,25 +74,25 @@ namespace Penguin.Cms.Workers
         /// <param name="e">Not used</param>
         public override void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            using (this.WorkerRepository.WriteContext())
+            using (WorkerRepository.WriteContext())
             {
                 try
                 {
-                    this.IsBusy = true;
-                    this.Logger.LogInfo("Starting worker {0}", this.TypeName);
+                    IsBusy = true;
+                    Logger.LogInfo("Starting worker {0}", TypeName);
                     base.Worker_DoWork(sender, e);
-                    this.Logger.LogInfo("Ending worker {0}", this.TypeName);
-                    this.WorkerRepository.SetLastRun(this.GetType());
+                    Logger.LogInfo("Ending worker {0}", TypeName);
+                    WorkerRepository.SetLastRun(GetType());
                 }
                 catch (Exception ex)
                 {
                     MessageBus?.Log(ex);
-                    this.Logger.LogException(ex);
+                    Logger.LogException(ex);
                     throw;
                 }
 
-                this.Logger.Dispose();
-                this.IsBusy = false;
+                Logger.Dispose();
+                IsBusy = false;
             }
         }
 
@@ -95,6 +100,9 @@ namespace Penguin.Cms.Workers
         /// Logs an informational message during the worker run
         /// </summary>
         /// <param name="toLog"></param>
-        protected void LogInfo(string toLog) => this.Logger.LogInfo(toLog, this.TypeName);
+        protected void LogInfo(string toLog)
+        {
+            Logger.LogInfo(toLog, TypeName);
+        }
     }
 }

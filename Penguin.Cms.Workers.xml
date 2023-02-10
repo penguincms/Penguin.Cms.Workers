@@ -24,7 +24,7 @@
             A worker repository to store event data in
             </summary>
         </member>
-        <member name="M:Penguin.Cms.Workers.CmsWorker.#ctor(Penguin.Workers.Repositories.WorkerRepository,Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.Entities.LogEntry},Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Errors.AuditableError},Penguin.Messaging.Core.MessageBus)">
+        <member name="M:Penguin.Cms.Workers.CmsWorker.#ctor(Penguin.Workers.Repositories.WorkerRepository,Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Logging.LogEntry},Penguin.Persistence.Abstractions.Interfaces.IRepository{Penguin.Cms.Errors.AuditableError},Penguin.Messaging.Core.MessageBus)">
             <summary>
             Creates a new instance of the CmsWorker class
             </summary>
