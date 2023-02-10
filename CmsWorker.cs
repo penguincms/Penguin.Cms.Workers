@@ -44,7 +44,7 @@ namespace Penguin.Cms.Workers
         /// <param name="logEntryRepository">A LogEntry repository implementation to use when building the underlying logger</param>
         /// <param name="errorRepository">An Error repository implementation for handling the creation of worker errors</param>
         /// <param name="messageBus">An optional message bus to use for the worker and logger</param>
-        public CmsWorker(WorkerRepository workerRepository, IRepository<LogEntry> logEntryRepository, IRepository<AuditableError> errorRepository, MessageBus messageBus = null)
+        protected CmsWorker(WorkerRepository workerRepository, IRepository<LogEntry> logEntryRepository, IRepository<AuditableError> errorRepository, MessageBus messageBus = null)
         {
             this.MessageBus = messageBus;
 
