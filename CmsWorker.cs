@@ -1,4 +1,5 @@
-﻿using Penguin.Cms.Errors;
+﻿using Loxifi;
+using Penguin.Cms.Errors;
 using Penguin.Cms.Logging;
 using Penguin.Cms.Logging.Services;
 using Penguin.Messaging.Abstractions.Interfaces;
@@ -18,6 +19,7 @@ namespace Penguin.Cms.Workers
     /// </summary>
     public abstract class CmsWorker : Worker
     {
+        private static TypeFactory TypeFactory { get; set; } = new TypeFactory(new TypeFactorySettings());
         /// <summary>
         /// The logger to use for recording worker activity
         /// </summary>
