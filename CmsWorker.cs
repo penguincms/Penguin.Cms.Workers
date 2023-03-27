@@ -19,7 +19,6 @@ namespace Penguin.Cms.Workers
     /// </summary>
     public abstract class CmsWorker : Worker
     {
-        private static TypeFactory TypeFactory { get; set; } = new TypeFactory(new TypeFactorySettings());
         /// <summary>
         /// The logger to use for recording worker activity
         /// </summary>
@@ -56,7 +55,7 @@ namespace Penguin.Cms.Workers
 
             WorkerRepository = workerRepository;
 
-            MessageBus.SubscribeAll(TypeFactory.GetAllImplementations(typeof(IMessageHandler)));
+            MessageBus.SubscribeAll(TypeFactory.Default.GetAllImplementations(typeof(IMessageHandler)));
 
             UpdateLastRun();
         }
