@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks>
-    <PackageProjectUrl>https://github.com/PenguinCms/Penguin.Cms.Workers</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/PenguinCMS/Penguin.Cms.Workers</PackageProjectUrl>
     <Version>5.0.5</Version>
     <Description>Contains base classes for all workers intended for consumption by CMS systems</Description>
     <AssemblyName>Penguin.Cms.Workers</AssemblyName>
@@ -10,10 +10,10 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Penguin.Workers.Abstractions" Version="5.4.0" />
-    <PackageReference Include="Penguin.Configuration" Version="5.4.0" />
-    <PackageReference Include="Penguin.Cms.Logging" Version="5.4.0" />
-    <PackageReference Include="Penguin.Workers.Repositories" Version="5.4.0" />
+    <PackageReference Include="Penguin.Workers.Abstractions" Version="5.7.0" />
+    <PackageReference Include="Penguin.Configuration" Version="5.7.0" />
+    <PackageReference Include="Penguin.Cms.Logging" Version="5.7.0" />
+    <PackageReference Include="Penguin.Workers.Repositories" Version="5.7.0" />
   </ItemGroup>
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
 </Project>
